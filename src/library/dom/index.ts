@@ -14,33 +14,33 @@ const dce = document.createElement.bind(document)
  * @param immediate 是否立即查找一次
  */
 const pollingQuery = (
-  element: Document | Element,
-  selectors: string,
-  intervel: number,
-  timeout: number,
-  immediate: boolean = true
+    element: Document | Element,
+    selectors: string,
+    intervel: number,
+    timeout: number,
+    immediate: boolean = true
 ): Promise<Element> => {
-  return new Promise((resolve, reject) => {
-    if (immediate) {
-      const ele = element.querySelector(selectors)
-      if (ele) {
-        resolve(ele)
-        return
-      }
-    }
-    const timerPolling = setInterval(() => {
-      const ele: Element | null = element.querySelector(selectors)
-      if (ele) {
-        clearTimeout(timerPolling)
-        resolve(ele)
-      }
-    }, intervel)
-    const timerTimeout = setTimeout(() => {
-      clearTimeout(timerPolling)
-      clearTimeout(timerTimeout)
-      reject()
-    }, timeout)
-  })
+    return new Promise((resolve, reject) => {
+        if (immediate) {
+            const ele = element.querySelector(selectors)
+            if (ele) {
+                resolve(ele)
+                return
+            }
+        }
+        const timerPolling = setInterval(() => {
+            const ele: Element | null = element.querySelector(selectors)
+            if (ele) {
+                clearTimeout(timerPolling)
+                resolve(ele)
+            }
+        }, intervel)
+        const timerTimeout = setTimeout(() => {
+            clearTimeout(timerPolling)
+            clearTimeout(timerTimeout)
+            reject()
+        }, timeout)
+    })
 }
 
 /**
@@ -53,11 +53,11 @@ const pollingQuery = (
  * 脚本会被注入到顶层 frame 和一个 iframe
  */
 const isTargetFrame = (): boolean => {
-  if (document.head.innerHTML.includes('BilibiliLive')) {
-    return true
-  } else {
-    return false
-  }
+    if (document.head.innerHTML.includes('BilibiliLive')) {
+        return true
+    } else {
+        return false
+    }
 }
 
 /**
@@ -69,6 +69,6 @@ const isSelfTopFrame = (): boolean => unsafeWindow.self === unsafeWindow.top
  * 获取顶层 frame 的 documentElement
  */
 const topFrameDocuemntElement = (): HTMLElement | undefined =>
-  unsafeWindow.top?.document?.documentElement
+    unsafeWindow.top?.document?.documentElement
 
 export { dq, dqa, dce, pollingQuery, isTargetFrame, isSelfTopFrame, topFrameDocuemntElement }

@@ -7,10 +7,10 @@ import { moduleEmitterEvents, runAtMoment } from '../../types/module'
  * @returns uuid
  */
 function uuid(): string {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (char) {
-    const randomInt = (16 * Math.random()) | 0
-    return ('x' === char ? randomInt : (3 & randomInt) | 8).toString(16)
-  })
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (char) {
+        const randomInt = (16 * Math.random()) | 0
+        return ('x' === char ? randomInt : (3 & randomInt) | 8).toString(16)
+    })
 }
 
 /**
@@ -18,7 +18,7 @@ function uuid(): string {
  * @param miliseconds 睡眠时间
  */
 function sleep(miliseconds: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, miliseconds))
+    return new Promise((resolve) => setTimeout(resolve, miliseconds))
 }
 
 /**
@@ -27,10 +27,10 @@ function sleep(miliseconds: number): Promise<void> {
  * @param timeout 超时时间
  */
 function wait(type: keyof moduleEmitterEvents, timeout: number = -1): Promise<any> {
-  return new Promise((resolve) => {
-    useModuleStore().emitter.once(type, (event) => resolve(event))
-    if (timeout !== -1) setTimeout(resolve, timeout)
-  })
+    return new Promise((resolve) => {
+        useModuleStore().emitter.once(type, (event) => resolve(event))
+        if (timeout !== -1) setTimeout(resolve, timeout)
+    })
 }
 
 /**
@@ -39,9 +39,9 @@ function wait(type: keyof moduleEmitterEvents, timeout: number = -1): Promise<an
  * @returns FormData
  */
 function packFormData(json: Record<string, any>): FormData {
-  const formData = new FormData()
-  _.forEach(json, (value, key) => formData.append(key, value.toString()))
-  return formData
+    const formData = new FormData()
+    _.forEach(json, (value, key) => formData.append(key, value.toString()))
+    return formData
 }
 
 /**
@@ -51,14 +51,14 @@ function packFormData(json: Record<string, any>): FormData {
  * @param path 遍历对象的路径，默认从最外层开始遍历
  */
 function deepestIterate(obj: any, fn: (value: any, path: string) => void, path?: string) {
-  _.forOwn(obj, function (value, key) {
-    const newPath = path ? path + '.' + key : key
-    if (_.isPlainObject(value) && !_.isEmpty(value)) {
-      deepestIterate(value, fn, newPath)
-    } else {
-      fn(value, newPath)
-    }
-  })
+    _.forOwn(obj, function (value, key) {
+        const newPath = path ? path + '.' + key : key
+        if (_.isPlainObject(value) && !_.isEmpty(value)) {
+            deepestIterate(value, fn, newPath)
+        } else {
+            fn(value, newPath)
+        }
+    })
 }
 
 /**
@@ -67,15 +67,15 @@ function deepestIterate(obj: any, fn: (value: any, path: string) => void, path?:
  * @returns URL
  */
 function getUrlFromFetchInput(input: RequestInfo | URL): string {
-  if (typeof input === 'string') {
-    return input
-  } else if (input instanceof URL) {
-    return input.toString()
-  } else if (input instanceof Request) {
-    return input.url
-  } else {
-    return 'Incorrect input'
-  }
+    if (typeof input === 'string') {
+        return input
+    } else if (input instanceof URL) {
+        return input.toString()
+    } else if (input instanceof Request) {
+        return input.url
+    } else {
+        return 'Incorrect input'
+    }
 }
 
 /**
@@ -83,67 +83,67 @@ function getUrlFromFetchInput(input: RequestInfo | URL): string {
  * @param moment 运行时机
  */
 function waitForMoment(moment: runAtMoment): Promise<void> {
-  switch (moment) {
-    case 'document-start': {
-      // 在 document-start 阶段，document-head 可能为 null
-      return Promise.resolve()
-    }
-    case 'document-head': {
-      // 在 document-head 阶段，document.head 已经出现但是部分内部节点可能还没出现
-      return new Promise((resolve) => {
-        if (document.head) {
-          resolve()
-        } else {
-          const observer = new MutationObserver(() => {
-            if (document.head) {
-              observer.disconnect()
-              resolve()
-            }
-          })
-          observer.observe(document.documentElement, { childList: true })
+    switch (moment) {
+        case 'document-start': {
+            // 在 document-start 阶段，document-head 可能为 null
+            return Promise.resolve()
         }
-      })
-    }
-    case 'document-body': {
-      // 在 document-body 阶段，document.body 已经出现但是部分内部节点可能还没出现
-      return new Promise((resolve) => {
-        if (document.body) {
-          resolve()
-        } else {
-          const observer = new MutationObserver(() => {
-            if (document.body) {
-              observer.disconnect()
-              resolve()
-            }
-          })
-          observer.observe(document.documentElement, { childList: true })
+        case 'document-head': {
+            // 在 document-head 阶段，document.head 已经出现但是部分内部节点可能还没出现
+            return new Promise((resolve) => {
+                if (document.head) {
+                    resolve()
+                } else {
+                    const observer = new MutationObserver(() => {
+                        if (document.head) {
+                            observer.disconnect()
+                            resolve()
+                        }
+                    })
+                    observer.observe(document.documentElement, { childList: true })
+                }
+            })
         }
-      })
-    }
-    case 'document-end': {
-      // 在 document-end 阶段，DOM 加载完成，但部分资源可能还没获取到（比如图片）
-      return new Promise((resolve) => {
-        if (document.readyState !== 'loading') {
-          resolve()
-        } else {
-          document.addEventListener('DOMContentLoaded', () => resolve())
+        case 'document-body': {
+            // 在 document-body 阶段，document.body 已经出现但是部分内部节点可能还没出现
+            return new Promise((resolve) => {
+                if (document.body) {
+                    resolve()
+                } else {
+                    const observer = new MutationObserver(() => {
+                        if (document.body) {
+                            observer.disconnect()
+                            resolve()
+                        }
+                    })
+                    observer.observe(document.documentElement, { childList: true })
+                }
+            })
         }
-      })
-    }
-    case 'window-load': {
-      // 在 window-load 阶段，整个网页加载完毕
-      return new Promise((resolve) => {
-        if (document.readyState === 'complete') {
-          resolve()
-        } else {
-          window.addEventListener('load', () => resolve())
+        case 'document-end': {
+            // 在 document-end 阶段，DOM 加载完成，但部分资源可能还没获取到（比如图片）
+            return new Promise((resolve) => {
+                if (document.readyState !== 'loading') {
+                    resolve()
+                } else {
+                    document.addEventListener('DOMContentLoaded', () => resolve())
+                }
+            })
         }
-      })
+        case 'window-load': {
+            // 在 window-load 阶段，整个网页加载完毕
+            return new Promise((resolve) => {
+                if (document.readyState === 'complete') {
+                    resolve()
+                } else {
+                    window.addEventListener('load', () => resolve())
+                }
+            })
+        }
+        default: {
+            return Promise.reject('Illegal moment')
+        }
     }
-    default: {
-      return Promise.reject('Illegal moment')
-    }
-  }
 }
 
 export { uuid, sleep, wait, packFormData, deepestIterate, getUrlFromFetchInput, waitForMoment }

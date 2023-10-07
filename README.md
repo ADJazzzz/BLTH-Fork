@@ -19,13 +19,13 @@
 
 点击下方表格中的任一链接即可从你喜欢的源安装脚本：
 
-Github min（推荐）| Github
-:----------------: | :------:
-[安装]() | [安装]() 
+Github |
+:----------------: |
+[安装](https://raw.githubusercontent.com/ADJazzzz/BLTH-Fork/main/dist/bilibili-live-tasks-helper.min.user.js) |
 
 # 更新日志
 
-请查看[CHANGELOG]()。
+请查看[CHANGELOG](https://github.com/ADJazzzz/BLTH-Fork/blob/main/CHANGELOG.md)。
 
 # 使用
 
