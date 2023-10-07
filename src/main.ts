@@ -25,7 +25,7 @@ cacheStore.checkCurrentScriptType()
 logger.log('当前脚本的类型为', cacheStore.currentScriptType)
 
 if (cacheStore.currentScriptType === 'Main') {
-  cacheStore.startMainBLTHAliveHeartBeat()
+    cacheStore.startMainBLTHAliveHeartBeat()
 }
 
 moduleStore.loadModules('unknown')
@@ -33,25 +33,25 @@ moduleStore.loadModules('unknown')
 await waitForMoment('document-body')
 
 if (isTargetFrame()) {
-  const app = createApp(App)
+    const app = createApp(App)
 
-  app.use(ElementPlus)
-  app.use(pinia)
+    app.use(ElementPlus)
+    app.use(pinia)
 
-  for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-    app.component(key, component)
-  }
+    for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+        app.component(key, component)
+    }
 
-  for (const [key, component] of Object.entries(MyIconsVue)) {
-    app.component(key, component)
-  }
+    for (const [key, component] of Object.entries(MyIconsVue)) {
+        app.component(key, component)
+    }
 
-  moduleStore.loadModules('yes')
+    moduleStore.loadModules('yes')
 
-  await waitForMoment('document-end')
+    await waitForMoment('document-end')
 
-  const div = dce('div')
-  div.id = 'BLTH'
-  document.body.append(div)
-  app.mount(div)
+    const div = dce('div')
+    div.id = 'BLTH'
+    document.body.append(div)
+    app.mount(div)
 }

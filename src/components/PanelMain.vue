@@ -8,13 +8,13 @@ import { defineComponent } from 'vue'
 
 // 注册对当前组件实例可用的组件
 export default defineComponent({
-  components: {
-    MainSiteTasks,
-    LiveTasks,
-    OtherTasks,
-    EnhanceExperience,
-    RemoveElement
-  }
+    components: {
+        MainSiteTasks,
+        LiveTasks,
+        OtherTasks,
+        EnhanceExperience,
+        RemoveElement
+    }
 })
 </script>
 
@@ -24,5 +24,5 @@ const uiStore = useUIStore()
 </script>
 
 <template>
-  <component :is="uiStore.uiConfig.activeMenuIndex"></component>
+    <component :is="uiStore.uiConfig.activeMenuIndex"></component>
 </template>
