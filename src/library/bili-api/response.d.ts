@@ -36,13 +36,6 @@ declare namespace Live {
         msg: string
     }
 
-    interface LikeReport {
-        code: number
-        message: string
-        ttl: number
-        data: {}
-    }
-
     interface GetInfoByRoom {
         code: number
         message: string

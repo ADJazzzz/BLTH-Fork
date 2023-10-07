@@ -17,7 +17,6 @@ interface IhelpInfo {
             sign: IhelpInfoItem
             medalTasks: {
                 list: IhelpInfoItem
-                like: IhelpInfoItem
                 danmu: IhelpInfoItem
                 watch: IhelpInfoItem
             }

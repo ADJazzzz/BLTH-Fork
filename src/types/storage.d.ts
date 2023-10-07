@@ -30,11 +30,6 @@ interface ImoduleConfig {
                     list: string[]
                     _lastCompleteTime: number
                 }
-                like: {
-                    enabled: boolean
-                    includeHighLevelMedals: boolean
-                    _lastCompleteTime: number
-                }
                 watch: {
                     enabled: boolean
                     time: number
