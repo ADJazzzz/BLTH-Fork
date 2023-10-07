@@ -97,6 +97,9 @@ interface ImoduleConfig {
     removeGiftPopover: {
       enabled: boolean
     }
+    removeGameParty: {
+      enabled: boolean
+    }
   }
 }
 
