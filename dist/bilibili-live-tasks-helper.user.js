@@ -3,7 +3,7 @@
 // @name:en         Bilibili Live Tasks Helper Fork
 // @name:zh         Bilibili Live Tasks Helper Fork
 // @namespace       https://github.com/ADJazzzz
-// @version         7.1.2-002
+// @version         7.1.2.2
 // @author          andywang425 & ADJazzzz
 // @description     Enhancing the experience of watching Bilibili live streaming.
 // @description:en  Enhancing the experience of watching Bilibili live streaming.
