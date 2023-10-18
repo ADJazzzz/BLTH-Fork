@@ -31,7 +31,6 @@ const defaultModuleStatus: ImoduleStatus = {
             sign: '',
             medalTasks: {
                 danmu: '',
-                like: '',
                 watch: ''
             }
         },

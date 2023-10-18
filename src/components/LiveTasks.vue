@@ -156,24 +156,6 @@ function handleSelectionChange(selectedRows: ImedalInfoRow[]) {
         <!-- 粉丝勋章相关任务 -->
         <el-row>
             <el-space wrap>
-                <el-switch v-model="config.medalTasks.like.enabled" active-text="给主播点赞" />
-                <Info id="DailyTasks.LiveTasks.medalTasks.like" />
-                <TaskStatus :status="status.medalTasks.like" />
-            </el-space>
-        </el-row>
-        <el-row>
-            <el-space wrap>
-                <el-icon>
-                    <SemiSelect />
-                </el-icon>
-                <el-switch
-                    v-model="config.medalTasks.like.includeHighLevelMedals"
-                    active-text="包含等级≥20的粉丝勋章"
-                />
-            </el-space>
-        </el-row>
-        <el-row>
-            <el-space wrap>
                 <el-switch v-model="config.medalTasks.danmu.enabled" active-text="发送弹幕" />
                 <el-button
                     type="primary"
@@ -234,7 +216,7 @@ function handleSelectionChange(selectedRows: ImedalInfoRow[]) {
         </el-row>
         <el-row>
             <el-text
-                >&emsp;&emsp;由于每天能通过完成任务获得亲密度的粉丝勋章数量有限，脚本默认仅为最多199个等级小于20的粉丝勋章完成给主播点赞，发送弹幕，观看直播任务。在脚本执行任务期间观看未执行任务的粉丝勋章对应直播间直播可能导致今天无法获取任何亲密度。</el-text
+                >&emsp;&emsp;由于每天能通过完成任务获得亲密度的粉丝勋章数量有限，脚本默认仅为最多199个等级小于等于20的粉丝勋章完成给主播发送弹幕，等级小于20的粉丝勋章观看直播任务。在脚本执行任务期间观看未执行任务的粉丝勋章对应直播间直播可能导致今天无法获取任何亲密度。</el-text
             >
         </el-row>
         <!-- 弹窗 -->

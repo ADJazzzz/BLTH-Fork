@@ -12,7 +12,6 @@ interface ImoduleStatus {
             sign: moduleStatus
             medalTasks: {
                 danmu: moduleStatus
-                like: moduleStatus
                 watch: moduleStatus
             }
         }

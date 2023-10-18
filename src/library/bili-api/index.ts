@@ -75,19 +75,6 @@ const BAPI: IbapiMethods = {
                 }
             })
         },
-        likeReport: (room_id, anchor_id, click_time = 1) => {
-            // 这个 API 目前仅在 APP 中出现，但是也可以使用 web 端的身份认证方式
-            const biliStore = useBiliStore()
-            const bili_jct = (biliStore.cookies as IbiliCookies).bili_jct
-            return request.live.post('/xlive/app-ucenter/v1/like_info_v3/like/likeReportV3', {
-                click_time,
-                room_id,
-                anchor_id,
-                uid: anchor_id,
-                ts: ts(),
-                csrf: bili_jct
-            })
-        },
         /**
          * 该API只在带有多层iframe（背景很好看）的直播间中被使用，但参数填任意直播间均可
          */
@@ -136,6 +123,14 @@ const BAPI: IbapiMethods = {
                 visit_id
             })
         }
+        // wearMedal: (medal_id) => {
+        //     const bili_jct = (useBiliStore().cookies as IbiliCookies).bili_jct as string
+        //     return  request.live.post('/xlive/web-room/v1/fansMedal/wear',{
+        //         medal_id,
+        //         csrf: bili_jct,
+        //         csrf_token: bili_jct
+        //     })
+        // }
     },
     liveTrace: {
         E: (id, device, ruid, is_patch = 0, heart_beat = [], visit_id = '') => {

@@ -17,7 +17,6 @@ interface IhelpInfo {
             sign: IhelpInfoItem
             medalTasks: {
                 list: IhelpInfoItem
-                like: IhelpInfoItem
                 danmu: IhelpInfoItem
                 watch: IhelpInfoItem
             }
@@ -42,6 +41,7 @@ interface IhelpInfo {
         removeShopPopover: IhelpInfoItem
         removeGiftPopover: IhelpInfoItem
         removeGameParty: IhelpInfoItem
+        removeMicPopover: IhelpInfoItem
     }
 }
 

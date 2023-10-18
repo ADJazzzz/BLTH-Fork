@@ -14,7 +14,7 @@ class DanmuTask extends BaseModule {
     }
 
     /**
-     * 获取粉丝勋章的房间号，过滤等级大于等于20或不符合黑白名单要求的粉丝勋章
+     * 获取粉丝勋章的房间号，过滤等级大于20或不符合黑白名单要求的粉丝勋章
      */
     private getRoomidList(): number[] | null {
         const biliStore = useBiliStore()
@@ -22,7 +22,7 @@ class DanmuTask extends BaseModule {
             return biliStore.filteredFansMedals
                 .filter(
                     (medal) =>
-                        medal.medal.level < 20 &&
+                        medal.medal.level <= 20 &&
                         medal.room_info.room_id != 910884 &&
                         (this.medalTasksConfig.isWhiteList
                             ? this.medalTasksConfig.roomidList.includes(medal.room_info.room_id)
