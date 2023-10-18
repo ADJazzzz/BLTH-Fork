@@ -49,6 +49,15 @@ const config = moduleStore.moduleConfig.RemoveElement
                 <Info id="RemoveElement.removeGameParty" />
             </el-space>
         </el-row>
+        <el-row>
+            <el-space wrap>
+                <el-switch
+                    v-model="config.removeMicPopover.enabled"
+                    active-text="移除连麦状态提示"
+                />
+                <Info id="RemoveElement.removeMicPopover" />
+            </el-space>
+        </el-row>
         <el-divider />
     </div>
 </template>

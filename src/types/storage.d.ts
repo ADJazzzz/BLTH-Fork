@@ -95,6 +95,9 @@ interface ImoduleConfig {
         removeGameParty: {
             enabled: boolean
         }
+        removeMicPopover: {
+            enabled: boolean
+        }
     }
 }
 

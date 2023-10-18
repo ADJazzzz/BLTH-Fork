@@ -231,6 +231,10 @@ const help_info: IhelpInfo = {
         removeGameParty: {
             title: '移除直播间幻星派对标志',
             message: '移除直播间右下角的幻星派对标志。'
+        },
+        removeMicPopover: {
+            title: '移除连麦状态提示',
+            message: '移除直播间左上角的连麦提示弹窗。'
         }
     }
 }

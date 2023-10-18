@@ -41,6 +41,7 @@ interface IhelpInfo {
         removeShopPopover: IhelpInfoItem
         removeGiftPopover: IhelpInfoItem
         removeGameParty: IhelpInfoItem
+        removeMicPopover: IhelpInfoItem
     }
 }
 
