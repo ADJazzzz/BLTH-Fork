@@ -58,6 +58,15 @@ const config = moduleStore.moduleConfig.RemoveElement
                 <Info id="RemoveElement.removeMicPopover" />
             </el-space>
         </el-row>
+        <el-row>
+            <el-space wrap>
+                <el-switch
+                    v-model="config.removeComboCard.enabled"
+                    active-text="移除相同弹幕连续提示弹窗"
+                />
+                <Info id="RemoveElement.removeComboCard" />
+            </el-space>
+        </el-row>
         <el-divider />
     </div>
 </template>
