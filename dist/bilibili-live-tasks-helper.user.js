@@ -3,7 +3,7 @@
 // @name:en         Bilibili Live Tasks Helper Fork
 // @name:zh         Bilibili Live Tasks Helper Fork
 // @namespace       https://github.com/ADJazzzz
-// @version         7.1.2.2
+// @version         7.1.2.3
 // @author          andywang425 & ADJazzzz
 // @description     Enhancing the experience of watching Bilibili live streaming.
 // @description:en  Enhancing the experience of watching Bilibili live streaming.
@@ -214,6 +214,9 @@
           enabled: false
         },
         removeMicPopover: {
+          enabled: false
+        },
+        removeComboCard: {
           enabled: false
         }
       }
@@ -3283,6 +3286,19 @@
     }
   }
   __publicField(removeMicPopover, "runOnMultiplePages", true);
+  class RemoveComboCard extends BaseModule {
+    constructor() {
+      super(...arguments);
+      __publicField(this, "config", this.moduleStore.moduleConfig.RemoveElement.removeComboCard);
+    }
+    async run() {
+      this.logger.log("移除直播间相同弹幕连续提示模块开始运行");
+      if (this.config.enabled) {
+        _GM_addStyle("#combo-card { display: none !important }");
+      }
+    }
+  }
+  __publicField(RemoveComboCard, "runOnMultiplePages", true);
   const otherModules = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     __proto__: null,
     DailyTask_LiveTask_DanmuTask: DanmuTask,
@@ -3301,6 +3317,7 @@
     EnhanceExperience_NoReport: NoReport,
     EnhanceExperience_NoSleep: NoSleep,
     EnhanceExperience_SwitchLiveStreamQuality: SwitchLiveStreamQuality,
+    RemoveElement_RemoveComboCard: RemoveComboCard,
     RemoveElement_RemoveGameParty: RemoveGameParty,
     RemoveElement_RemoveGiftPopover: removeGiftPopover,
     RemoveElement_RemoveLiveWaterMark: RemoveLiveWaterMark,
@@ -4442,6 +4459,22 @@
             ]),
             _: 1
           }),
+          vue.createVNode(_component_el_row, null, {
+            default: vue.withCtx(() => [
+              vue.createVNode(_component_el_space, { wrap: "" }, {
+                default: vue.withCtx(() => [
+                  vue.createVNode(_component_el_switch, {
+                    modelValue: vue.unref(config).removeComboCard.enabled,
+                    "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => vue.unref(config).removeComboCard.enabled = $event),
+                    "active-text": "移除相同弹幕连续提示弹窗"
+                  }, null, 8, ["modelValue"]),
+                  vue.createVNode(_component_Info, { id: "RemoveElement.removeComboCard" })
+                ]),
+                _: 1
+              })
+            ]),
+            _: 1
+          }),
           vue.createVNode(_component_el_divider)
         ]);
       };
@@ -4842,6 +4875,10 @@
       removeMicPopover: {
         title: "移除连麦状态提示",
         message: "移除直播间左上角的连麦提示弹窗。"
+      },
+      removeComboCard: {
+        title: "移除直播间相同弹幕连续提示",
+        message: "移除直播间的相同弹幕连续提示弹窗。"
       }
     }
   };
