@@ -28,8 +28,10 @@ class ContributionRank extends BaseModule {
                 const rankTabElement = dq('.tab-list.dp-flex')
                 if (rankTabElement && contributionRankData?.code === 0) {
                     rankTabElement.children[0].innerHTML = `高能用户(${contributionRankData.data.count})`
+                } else if (contributionRankData?.code !== 0) {
+                    this.logger.error('获取高能用户数量失败', contributionRankData)
                 } else {
-                    this.logger.error('获取高能用户数量失败')
+                    this.logger.error('未找到高能用户数量标签')
                 }
             }, 5000)
         }
