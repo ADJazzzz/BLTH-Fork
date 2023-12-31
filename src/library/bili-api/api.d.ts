@@ -40,6 +40,10 @@ interface IbapiMethods {
             platform?: string,
             visit_id?: string
         ) => Promise<Live.Coin2silver>
+        queryContributionRank: (
+            ruid: number,
+            room_id: number
+        ) => Promise<Live.QueryContributionRank>
     }
     liveTrace: {
         E: (

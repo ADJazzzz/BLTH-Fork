@@ -78,6 +78,9 @@ interface ImoduleConfig {
         invisibility: {
             enabled: boolean
         }
+        contributionRank: {
+            enabled: boolean
+        }
     }
     RemoveElement: {
         removePKBox: {

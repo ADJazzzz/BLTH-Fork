@@ -122,15 +122,13 @@ const BAPI: IbapiMethods = {
                 platform,
                 visit_id
             })
+        },
+        queryContributionRank: (ruid, room_id) => {
+            return request.live.get('/xlive/general-interface/v1/rank/queryContributionRank', {
+                ruid,
+                room_id
+            })
         }
-        // wearMedal: (medal_id) => {
-        //     const bili_jct = (useBiliStore().cookies as IbiliCookies).bili_jct as string
-        //     return  request.live.post('/xlive/web-room/v1/fansMedal/wear',{
-        //         medal_id,
-        //         csrf: bili_jct,
-        //         csrf_token: bili_jct
-        //     })
-        // }
     },
     liveTrace: {
         E: (id, device, ruid, is_patch = 0, heart_beat = [], visit_id = '') => {
