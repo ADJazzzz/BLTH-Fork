@@ -22,7 +22,7 @@ class ContributionRank extends BaseModule {
 
     public run(): void {
         this.logger.log('显示高能用户数量模块开始运行')
-        if (this.config) {
+        if (this.config.enabled) {
             setInterval(async () => {
                 const contributionRankData = await this.getContributionRank()
                 const rankTabElement = dq('.tab-list.dp-flex')
