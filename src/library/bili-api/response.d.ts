@@ -68,6 +68,13 @@ declare namespace Live {
         data: { silver: number }
         message: string
     }
+
+    interface QueryContributionRank {
+        code: number
+        message: string
+        ttl: number
+        data: LiveData.QueryContributionRank.Data
+    }
 }
 
 declare namespace LiveTrace {

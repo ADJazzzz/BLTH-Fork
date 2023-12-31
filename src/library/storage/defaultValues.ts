@@ -107,6 +107,9 @@ const defaultValues: IdefaultValues = {
             },
             invisibility: {
                 enabled: false
+            },
+            contributionRank: {
+                enabled: false
             }
         },
         RemoveElement: {

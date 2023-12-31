@@ -17,7 +17,7 @@ Settings.defaultZone = 'Asia/Shanghai'
  * @param hour 小时（0-23），默认0
  * @param minute 分钟（0-59），默认5
  */
-function isTimestampToday(timestamp: number, hour: number = 0, minute: number = 5): boolean {
+function isTimestampToday(timestamp: number, hour: number = 0, minute: number = 1): boolean {
     const time = DateTime.fromMillis(timestamp)
 
     // 重新定义一天（称之为A）开始的时间（A 的昨天结束的时间）
@@ -50,7 +50,7 @@ function isTimestampToday(timestamp: number, hour: number = 0, minute: number = 
  * @param hour 小时（0-23），默认0
  * @param minute 分钟（0-59），默认5
  */
-function delayToNextMoment(hour: number = 0, minute: number = 5): Iduration {
+function delayToNextMoment(hour: number = 0, minute: number = 1): Iduration {
     const now = DateTime.now()
     let nextTime = DateTime.local(now.year, now.month, now.day, hour, minute)
 

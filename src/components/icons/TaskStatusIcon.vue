@@ -34,4 +34,3 @@ defineProps<{
     font-size: var(--el-font-size-base);
 }
 </style>
-../../types/module
