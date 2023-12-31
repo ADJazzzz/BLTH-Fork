@@ -3,7 +3,7 @@
 // @name:en         Bilibili Live Tasks Helper Fork
 // @name:zh         Bilibili Live Tasks Helper Fork
 // @namespace       https://github.com/ADJazzzz
-// @version         7.1.2.3
+// @version         7.1.2.4
 // @author          andywang425 & ADJazzzz
 // @description     Enhancing the experience of watching Bilibili live streaming.
 // @description:en  Enhancing the experience of watching Bilibili live streaming.
@@ -58,7 +58,7 @@
 // @run-at          document-start
 // ==/UserScript==
 
-(e=>{if(typeof GM_addStyle=="function"){GM_addStyle(e);return}const t=document.createElement("style");t.textContent=e,document.head.append(t)})(" .title[data-v-e675db5f]{padding-left:20px;align-items:center;display:flex}.header-big-text[data-v-e675db5f]{font-size:var(--big-text-size)}.header-small-text[data-v-e675db5f]{font-size:var(--small-text-size);padding-top:calc(var(--big-text-size) - var(--small-text-size));margin-left:10px;--small-text-size: 18px}.collapse-btn[data-v-e675db5f]{display:flex;justify-content:center;align-items:center;height:100%;float:left;cursor:pointer}.avatar-wrap[data-v-cb6aabec]{width:80px;height:80px}.avatar[data-v-cb6aabec]{display:flex;justify-content:center;align-items:center;border-radius:50%}.base[data-v-d9fcd727]{z-index:1003;position:absolute;background-color:#fff;border-bottom:1px solid #e3e5e7;border-left:1px solid #e3e5e7;border-right:1px solid #e3e5e7}.header[data-v-d9fcd727]{position:relative;box-sizing:border-box;width:100%;font-size:var(--big-text-size);align-items:center;display:flex;border-bottom:1px solid #e3e5e7;height:60px;--big-text-size: 25px}.aside[data-v-d9fcd727]{width:auto}.aside #aside-el-menu[data-v-d9fcd727]:not(.el-menu--collapse){width:150px}.main[data-v-d9fcd727]{--main-top-botton-padding: calc(var(--el-main-padding) * .625);padding-top:var(--main-top-botton-padding);padding-bottom:var(--main-top-botton-padding)}.fade-enter-active[data-v-d9fcd727],.fade-leave-active[data-v-d9fcd727]{transition:opacity .1s ease}.fade-enter-from[data-v-d9fcd727],.fade-leave-to[data-v-d9fcd727]{opacity:0}.info-icon[data-v-ff60cff4]{font-size:var(--el-font-size-base);cursor:pointer}.status-icon[data-v-f46b6729]{font-size:var(--el-font-size-base)}.blth_btn{background-color:#23ade5;font-size:small;margin-inline-start:5px;color:#fff;border-radius:4px;border:none;padding:5px;cursor:pointer;box-shadow:0 0 2px #00000075;line-height:10px;margin-left:15px}.blth_btn:hover{background-color:#1097cc}.blth_btn:hover:active{background-color:#0e86b6;position:relative;top:1px} ");
+(e=>{if(typeof GM_addStyle=="function"){GM_addStyle(e);return}const t=document.createElement("style");t.textContent=e,document.head.append(t)})(" .title[data-v-e675db5f]{padding-left:20px;align-items:center;display:flex}.header-big-text[data-v-e675db5f]{font-size:var(--big-text-size)}.header-small-text[data-v-e675db5f]{font-size:var(--small-text-size);padding-top:calc(var(--big-text-size) - var(--small-text-size));margin-left:10px;--small-text-size: 18px}.collapse-btn[data-v-e675db5f]{display:flex;justify-content:center;align-items:center;height:100%;float:left;cursor:pointer}.avatar-wrap[data-v-cb6aabec]{width:80px;height:80px}.avatar[data-v-cb6aabec]{display:flex;justify-content:center;align-items:center;border-radius:50%}.base[data-v-d9fcd727]{z-index:1003;position:absolute;background-color:#fff;border-bottom:1px solid #e3e5e7;border-left:1px solid #e3e5e7;border-right:1px solid #e3e5e7}.header[data-v-d9fcd727]{position:relative;box-sizing:border-box;width:100%;font-size:var(--big-text-size);align-items:center;display:flex;border-bottom:1px solid #e3e5e7;height:60px;--big-text-size: 25px}.aside[data-v-d9fcd727]{width:auto}.aside #aside-el-menu[data-v-d9fcd727]:not(.el-menu--collapse){width:150px}.main[data-v-d9fcd727]{--main-top-botton-padding: calc(var(--el-main-padding) * .625);padding-top:var(--main-top-botton-padding);padding-bottom:var(--main-top-botton-padding)}.fade-enter-active[data-v-d9fcd727],.fade-leave-active[data-v-d9fcd727]{transition:opacity .1s ease}.fade-enter-from[data-v-d9fcd727],.fade-leave-to[data-v-d9fcd727]{opacity:0}.info-icon[data-v-ff60cff4]{font-size:var(--el-font-size-base);cursor:pointer}.status-icon[data-v-0c7afaef]{font-size:var(--el-font-size-base)}.blth_btn{background-color:#23ade5;font-size:small;margin-inline-start:5px;color:#fff;border-radius:4px;border:none;padding:5px;cursor:pointer;box-shadow:0 0 2px #00000075;line-height:10px;margin-left:15px}.blth_btn:hover{background-color:#1097cc}.blth_btn:hover:active{background-color:#0e86b6;position:relative;top:1px} ");
 
 (async function (vue, pinia$1, _, ElementPlusIconsVue, luxon, CryptoJS, ElementPlus, hotkeys) {
   'use strict';
@@ -194,6 +194,9 @@
           enabled: false
         },
         invisibility: {
+          enabled: false
+        },
+        contributionRank: {
           enabled: false
         }
       },
@@ -694,7 +697,7 @@
     }
   }
   luxon.Settings.defaultZone = "Asia/Shanghai";
-  function isTimestampToday(timestamp, hour = 0, minute = 5) {
+  function isTimestampToday(timestamp, hour = 0, minute = 1) {
     const time = luxon.DateTime.fromMillis(timestamp);
     const startOfADay = luxon.DateTime.now().set({
       hour,
@@ -710,7 +713,7 @@
       return time >= startOfYesterday && time < startOfADay;
     }
   }
-  function delayToNextMoment(hour = 0, minute = 5) {
+  function delayToNextMoment(hour = 0, minute = 1) {
     const now = luxon.DateTime.now();
     let nextTime = luxon.DateTime.local(now.year, now.month, now.day, hour, minute);
     if (now > nextTime) {
@@ -839,15 +842,13 @@
           platform,
           visit_id
         });
+      },
+      queryContributionRank: (ruid, room_id) => {
+        return request.live.get("/xlive/general-interface/v1/rank/queryContributionRank", {
+          ruid,
+          room_id
+        });
       }
-      // wearMedal: (medal_id) => {
-      //     const bili_jct = (useBiliStore().cookies as IbiliCookies).bili_jct as string
-      //     return  request.live.post('/xlive/web-room/v1/fansMedal/wear',{
-      //         medal_id,
-      //         csrf: bili_jct,
-      //         csrf_token: bili_jct
-      //     })
-      // }
     },
     liveTrace: {
       E: (id, device, ruid, is_patch = 0, heart_beat = [], visit_id = "") => {
@@ -3188,6 +3189,38 @@
   __publicField(Invisibility, "runAt", "document-start");
   __publicField(Invisibility, "runAfterDefault", false);
   __publicField(Invisibility, "onFrame", "all");
+  class ContributionRank extends BaseModule {
+    constructor() {
+      super(...arguments);
+      __publicField(this, "config", this.moduleStore.moduleConfig.EnhanceExperience.contributionRank);
+    }
+    async getContributionRank() {
+      const biliInfo = _unsafeWindow.BilibiliLive;
+      const response = await BAPI.live.queryContributionRank(
+        (biliInfo == null ? void 0 : biliInfo.ANCHOR_UID) ?? 0,
+        (biliInfo == null ? void 0 : biliInfo.ROOMID) ?? 0
+      );
+      return response;
+    }
+    run() {
+      this.logger.log("显示高能用户数量模块开始运行");
+      if (this.config.enabled) {
+        setInterval(async () => {
+          const contributionRankData = await this.getContributionRank();
+          const rankTabElement = dq(".tab-list.dp-flex");
+          if (rankTabElement && (contributionRankData == null ? void 0 : contributionRankData.code) === 0) {
+            rankTabElement.children[0].innerHTML = `高能用户(${contributionRankData.data.count})`;
+          } else if ((contributionRankData == null ? void 0 : contributionRankData.code) !== 0) {
+            this.logger.error("获取高能用户数量失败", contributionRankData);
+          } else {
+            this.logger.error("未找到高能用户数量标签");
+          }
+        }, 5e3);
+      }
+    }
+  }
+  __publicField(ContributionRank, "runOnMultiplePages", true);
+  __publicField(ContributionRank, "runAt", "window-load");
   class RemovePKBox extends BaseModule {
     constructor() {
       super(...arguments);
@@ -3313,6 +3346,7 @@
     DailyTask_OtherTask_GroupSignTask: GroupSignTask,
     DailyTask_OtherTask_SilverToCoinTask: SilverToCoinTask,
     EnhanceExperience_BanP2P: BanP2P,
+    EnhanceExperience_ContributionRank: ContributionRank,
     EnhanceExperience_Invisibility: Invisibility,
     EnhanceExperience_NoReport: NoReport,
     EnhanceExperience_NoSleep: NoSleep,
@@ -4346,6 +4380,22 @@
             ]),
             _: 1
           }),
+          vue.createVNode(_component_el_row, null, {
+            default: vue.withCtx(() => [
+              vue.createVNode(_component_el_space, { wrap: "" }, {
+                default: vue.withCtx(() => [
+                  vue.createVNode(_component_el_switch, {
+                    modelValue: vue.unref(config).contributionRank.enabled,
+                    "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => vue.unref(config).contributionRank.enabled = $event),
+                    "active-text": "显示高能用户数量"
+                  }, null, 8, ["modelValue"]),
+                  vue.createVNode(_component_Info, { id: "EnhanceExperience.contributionRank" })
+                ]),
+                _: 1
+              })
+            ]),
+            _: 1
+          }),
           vue.createVNode(_component_el_divider)
         ]);
       };
@@ -4849,6 +4899,10 @@
             )
           ])
         ])
+      },
+      contributionRank: {
+        title: "显示高能用户数量",
+        message: "5秒后在高能用户标签上显示当前直播间的高能用户数量。"
       }
     },
     RemoveElement: {
@@ -4975,7 +5029,7 @@
       };
     }
   });
-  const TaskStatusIcon = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-f46b6729"]]);
+  const TaskStatusIcon = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-0c7afaef"]]);
   const MyIconsVue = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     __proto__: null,
     Info: InfoIcon,
