@@ -1,7 +1,7 @@
 name: 新功能请求
 description: 提出你想要的功能。
 labels: ['enhancement']
-assignees: andywang425
+assignees: ADJazzzz
 
 body:
     - type: markdown
