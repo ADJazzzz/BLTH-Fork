@@ -3,7 +3,7 @@
 // @name:en         Bilibili Live Tasks Helper Fork
 // @name:zh         Bilibili Live Tasks Helper Fork
 // @namespace       https://github.com/ADJazzzz
-// @version         7.1.2.4
+// @version         7.1.2.5
 // @author          andywang425 & ADJazzzz
 // @description     Enhancing the experience of watching Bilibili live streaming.
 // @description:en  Enhancing the experience of watching Bilibili live streaming.
@@ -37,11 +37,11 @@
 // @require         data:application/javascript,window.Vue%3DVue%2Cwindow.VueDemi%3DVue%3B
 // @require         https://unpkg.com/element-plus@2.3.14/dist/index.full.min.js
 // @require         https://unpkg.com/@element-plus/icons-vue@2.1.0/dist/index.iife.min.js
-// @require         https://unpkg.com/pinia@2.1.6/dist/pinia.iife.prod.js
+// @require         https://unpkg.com/pinia@2.1.7/dist/pinia.iife.prod.js
 // @require         https://unpkg.com/lodash@4.17.21/lodash.min.js
 // @require         https://unpkg.com/hotkeys-js@3.12.0/dist/hotkeys.min.js
-// @require         https://unpkg.com/luxon@3.4.3/build/global/luxon.min.js
-// @require         https://unpkg.com/crypto-js@4.1.1/crypto-js.js
+// @require         https://unpkg.com/luxon@3.4.4/build/global/luxon.min.js
+// @require         https://unpkg.com/crypto-js@4.2.0/crypto-js.js
 // @resource        element-plus/dist/index.css  https://unpkg.com/element-plus@2.3.14/dist/index.css
 // @connect         api.bilibili.com
 // @connect         api.live.bilibili.com
@@ -1018,7 +1018,7 @@
     }
     get prefix() {
       return [
-        `%c${this.NAME}%c[${( new Date()).toLocaleString()}]%c[${this.prefix_title_str}]%c:`,
+        `%c${this.NAME}%c[${(/* @__PURE__ */ new Date()).toLocaleString()}]%c[${this.prefix_title_str}]%c:`,
         "font-weight: bold; color: white; background-color: #23ade5; padding: 1px 4px; border-radius: 4px;",
         "font-weight: bold; color: #0920e6;",
         "font-weight: bold;",
@@ -3228,6 +3228,7 @@
     }
     removePKNode() {
       _GM_addStyle("#awesome-pk-vm { display: none !important }");
+      _GM_addStyle(".chat-item.new-video-pk-item-dm { display: none !important }");
     }
     removePKToast() {
       const blackWordList = ["主播即将结束PK", "连线断开中"];
