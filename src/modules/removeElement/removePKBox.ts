@@ -8,6 +8,7 @@ class RemovePKBox extends BaseModule {
 
     private removePKNode() {
         GM_addStyle('#awesome-pk-vm { display: none !important }')
+        GM_addStyle('.chat-item.new-video-pk-item-dm { display: none !important }')
     }
 
     private removePKToast() {
