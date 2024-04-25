@@ -104,6 +104,9 @@ interface ImoduleConfig {
         removeComboCard: {
             enabled: boolean
         }
+        removeLiveMosaic: {
+            enabled: boolean
+        }
     }
 }
 

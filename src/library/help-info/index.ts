@@ -243,6 +243,10 @@ const help_info: IhelpInfo = {
         removeComboCard: {
             title: '移除直播间相同弹幕连续提示',
             message: '移除直播间的相同弹幕连续提示弹窗。'
+        },
+        removeLiveMosaic: {
+            title: '移除直播间马赛克',
+            message: '移除部分直播间特有的马赛克。'
         }
     }
 }
