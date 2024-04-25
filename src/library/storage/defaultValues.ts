@@ -133,6 +133,9 @@ const defaultValues: IdefaultValues = {
             },
             removeComboCard: {
                 enabled: false
+            },
+            removeLiveMosaic: {
+                enabled: false
             }
         }
     },

@@ -44,6 +44,7 @@ interface IhelpInfo {
         removeGameParty: IhelpInfoItem
         removeMicPopover: IhelpInfoItem
         removeComboCard: IhelpInfoItem
+        removeLiveMosaic: IhelpInfoItem
     }
 }
 
