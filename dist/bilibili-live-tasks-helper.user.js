@@ -3,7 +3,7 @@
 // @name:en         Bilibili Live Tasks Helper Fork
 // @name:zh         Bilibili Live Tasks Helper Fork
 // @namespace       https://github.com/ADJazzzz
-// @version         7.1.2.5
+// @version         7.1.2.6
 // @author          andywang425 & ADJazzzz
 // @description     Enhancing the experience of watching Bilibili live streaming.
 // @description:en  Enhancing the experience of watching Bilibili live streaming.
@@ -35,14 +35,14 @@
 // @match           *://live.bilibili.com/blanc/9*
 // @require         https://unpkg.com/vue@3.3.4/dist/vue.global.prod.js
 // @require         data:application/javascript,window.Vue%3DVue%2Cwindow.VueDemi%3DVue%3B
-// @require         https://unpkg.com/element-plus@2.3.14/dist/index.full.min.js
-// @require         https://unpkg.com/@element-plus/icons-vue@2.1.0/dist/index.iife.min.js
+// @require         https://unpkg.com/element-plus@2.7.1/dist/index.full.min.js
+// @require         https://unpkg.com/@element-plus/icons-vue@2.3.1/dist/index.iife.min.js
 // @require         https://unpkg.com/pinia@2.1.7/dist/pinia.iife.prod.js
 // @require         https://unpkg.com/lodash@4.17.21/lodash.min.js
-// @require         https://unpkg.com/hotkeys-js@3.12.0/dist/hotkeys.min.js
+// @require         https://unpkg.com/hotkeys-js@3.13.7/dist/hotkeys.min.js
 // @require         https://unpkg.com/luxon@3.4.4/build/global/luxon.min.js
 // @require         https://unpkg.com/crypto-js@4.2.0/crypto-js.js
-// @resource        element-plus/dist/index.css  https://unpkg.com/element-plus@2.3.14/dist/index.css
+// @resource        element-plus/dist/index.css  https://unpkg.com/element-plus@2.7.1/dist/index.css
 // @connect         api.bilibili.com
 // @connect         api.live.bilibili.com
 // @connect         api.vc.bilibili.com
@@ -58,7 +58,7 @@
 // @run-at          document-start
 // ==/UserScript==
 
-(e=>{if(typeof GM_addStyle=="function"){GM_addStyle(e);return}const t=document.createElement("style");t.textContent=e,document.head.append(t)})(" .title[data-v-e675db5f]{padding-left:20px;align-items:center;display:flex}.header-big-text[data-v-e675db5f]{font-size:var(--big-text-size)}.header-small-text[data-v-e675db5f]{font-size:var(--small-text-size);padding-top:calc(var(--big-text-size) - var(--small-text-size));margin-left:10px;--small-text-size: 18px}.collapse-btn[data-v-e675db5f]{display:flex;justify-content:center;align-items:center;height:100%;float:left;cursor:pointer}.avatar-wrap[data-v-cb6aabec]{width:80px;height:80px}.avatar[data-v-cb6aabec]{display:flex;justify-content:center;align-items:center;border-radius:50%}.base[data-v-d9fcd727]{z-index:1003;position:absolute;background-color:#fff;border-bottom:1px solid #e3e5e7;border-left:1px solid #e3e5e7;border-right:1px solid #e3e5e7}.header[data-v-d9fcd727]{position:relative;box-sizing:border-box;width:100%;font-size:var(--big-text-size);align-items:center;display:flex;border-bottom:1px solid #e3e5e7;height:60px;--big-text-size: 25px}.aside[data-v-d9fcd727]{width:auto}.aside #aside-el-menu[data-v-d9fcd727]:not(.el-menu--collapse){width:150px}.main[data-v-d9fcd727]{--main-top-botton-padding: calc(var(--el-main-padding) * .625);padding-top:var(--main-top-botton-padding);padding-bottom:var(--main-top-botton-padding)}.fade-enter-active[data-v-d9fcd727],.fade-leave-active[data-v-d9fcd727]{transition:opacity .1s ease}.fade-enter-from[data-v-d9fcd727],.fade-leave-to[data-v-d9fcd727]{opacity:0}.info-icon[data-v-ff60cff4]{font-size:var(--el-font-size-base);cursor:pointer}.status-icon[data-v-0c7afaef]{font-size:var(--el-font-size-base)}.blth_btn{background-color:#23ade5;font-size:small;margin-inline-start:5px;color:#fff;border-radius:4px;border:none;padding:5px;cursor:pointer;box-shadow:0 0 2px #00000075;line-height:10px;margin-left:15px}.blth_btn:hover{background-color:#1097cc}.blth_btn:hover:active{background-color:#0e86b6;position:relative;top:1px} ");
+(e=>{if(typeof GM_addStyle=="function"){GM_addStyle(e);return}const t=document.createElement("style");t.textContent=e,document.head.append(t)})(" .title[data-v-e675db5f]{padding-left:20px;align-items:center;display:flex}.header-big-text[data-v-e675db5f]{font-size:var(--big-text-size)}.header-small-text[data-v-e675db5f]{font-size:var(--small-text-size);padding-top:calc(var(--big-text-size) - var(--small-text-size));margin-left:10px;--small-text-size: 18px}.collapse-btn[data-v-e675db5f]{display:flex;justify-content:center;align-items:center;height:100%;float:left;cursor:pointer}.avatar-wrap[data-v-11c44ff3]{width:80px;height:80px}.avatar[data-v-11c44ff3]{display:flex;justify-content:center;align-items:center;border-radius:50%}.base[data-v-d9fcd727]{z-index:1003;position:absolute;background-color:#fff;border-bottom:1px solid #e3e5e7;border-left:1px solid #e3e5e7;border-right:1px solid #e3e5e7}.header[data-v-d9fcd727]{position:relative;box-sizing:border-box;width:100%;font-size:var(--big-text-size);align-items:center;display:flex;border-bottom:1px solid #e3e5e7;height:60px;--big-text-size: 25px}.aside[data-v-d9fcd727]{width:auto}.aside #aside-el-menu[data-v-d9fcd727]:not(.el-menu--collapse){width:150px}.main[data-v-d9fcd727]{--main-top-botton-padding: calc(var(--el-main-padding) * .625);padding-top:var(--main-top-botton-padding);padding-bottom:var(--main-top-botton-padding)}.fade-enter-active[data-v-d9fcd727],.fade-leave-active[data-v-d9fcd727]{transition:opacity .1s ease}.fade-enter-from[data-v-d9fcd727],.fade-leave-to[data-v-d9fcd727]{opacity:0}.info-icon[data-v-ff60cff4]{font-size:var(--el-font-size-base);cursor:pointer}.status-icon[data-v-0c7afaef]{font-size:var(--el-font-size-base)}.blth_btn{background-color:#23ade5;font-size:small;margin-inline-start:5px;color:#fff;border-radius:4px;border:none;padding:5px;cursor:pointer;box-shadow:0 0 2px #00000075;line-height:10px;margin-left:15px}.blth_btn:hover{background-color:#1097cc}.blth_btn:hover:active{background-color:#0e86b6;position:relative;top:1px} ");
 
 (async function (vue, pinia$1, _, ElementPlusIconsVue, luxon, CryptoJS, ElementPlus, hotkeys) {
   'use strict';
@@ -220,6 +220,9 @@
           enabled: false
         },
         removeComboCard: {
+          enabled: false
+        },
+        removeLiveMosaic: {
           enabled: false
         }
       }
@@ -3333,6 +3336,19 @@
     }
   }
   __publicField(RemoveComboCard, "runOnMultiplePages", true);
+  class RemoveLiveMosaic extends BaseModule {
+    constructor() {
+      super(...arguments);
+      __publicField(this, "config", this.moduleStore.moduleConfig.RemoveElement.removeLiveMosaic);
+    }
+    async run() {
+      this.logger.log("移除直播间马赛克模块开始运行");
+      if (this.config.enabled) {
+        _GM_addStyle("#web-player-module-area-mask-panel { opacity: 0 !important }");
+      }
+    }
+  }
+  __publicField(RemoveLiveMosaic, "runOnMultiplePages", true);
   const otherModules = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     __proto__: null,
     DailyTask_LiveTask_DanmuTask: DanmuTask,
@@ -3355,6 +3371,7 @@
     RemoveElement_RemoveComboCard: RemoveComboCard,
     RemoveElement_RemoveGameParty: RemoveGameParty,
     RemoveElement_RemoveGiftPopover: removeGiftPopover,
+    RemoveElement_RemoveLiveMosaic: RemoveLiveMosaic,
     RemoveElement_RemoveLiveWaterMark: RemoveLiveWaterMark,
     RemoveElement_RemoveMicPopover: removeMicPopover,
     RemoveElement_RemovePKBox: RemovePKBox,
@@ -3675,7 +3692,7 @@
       };
     }
   });
-  const _withScopeId$1 = (n) => (vue.pushScopeId("data-v-cb6aabec"), n = n(), vue.popScopeId(), n);
+  const _withScopeId$1 = (n) => (vue.pushScopeId("data-v-11c44ff3"), n = n(), vue.popScopeId(), n);
   const _hoisted_1$2 = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ vue.createElementVNode("br", null, null, -1));
   const _hoisted_2$1 = { class: "avatar-wrap" };
   const _sfc_main$8 = /* @__PURE__ */ vue.defineComponent({
@@ -3746,14 +3763,17 @@
         if (firstClickEditList) {
           if (!biliStore.fansMedals) {
             medalInfoLoading.value = true;
-            const unwatch = vue.watch(medalInfoTableData, (newData) => {
-              if (newData) {
-                unwatch();
-                firstClickEditList = false;
-                initSelection(medalInfoTableData.value);
-                medalInfoLoading.value = false;
+            const unwatch = vue.watch(
+              () => medalInfoTableData.value,
+              (newData) => {
+                if (newData) {
+                  unwatch();
+                  firstClickEditList = false;
+                  initSelection(newData);
+                  medalInfoLoading.value = false;
+                }
               }
-            });
+            );
             moduleStore2.emitter.emit("Default_FansMedals", {
               module: "LiveTasks"
             });
@@ -3770,8 +3790,8 @@
           const unwatch = vue.watch(
             () => medalInfoTableRef.value,
             (newValue) => {
-              setTimeout(() => unwatch(), 0);
               if (newValue) {
+                setTimeout(() => unwatch(), 0);
                 config.medalTasks.roomidList.forEach(
                   (roomid) => newValue.toggleRowSelection(
                     rows.find((row) => row.roomid === roomid),
@@ -4141,7 +4161,7 @@
       };
     }
   });
-  const LiveTasks = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-cb6aabec"]]);
+  const LiveTasks = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-11c44ff3"]]);
   const _sfc_main$7 = /* @__PURE__ */ vue.defineComponent({
     __name: "OtherTasks",
     setup(__props) {
@@ -4520,6 +4540,22 @@
                     "active-text": "移除相同弹幕连续提示弹窗"
                   }, null, 8, ["modelValue"]),
                   vue.createVNode(_component_Info, { id: "RemoveElement.removeComboCard" })
+                ]),
+                _: 1
+              })
+            ]),
+            _: 1
+          }),
+          vue.createVNode(_component_el_row, null, {
+            default: vue.withCtx(() => [
+              vue.createVNode(_component_el_space, { wrap: "" }, {
+                default: vue.withCtx(() => [
+                  vue.createVNode(_component_el_switch, {
+                    modelValue: vue.unref(config).removeLiveMosaic.enabled,
+                    "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => vue.unref(config).removeLiveMosaic.enabled = $event),
+                    "active-text": "移除直播间马赛克"
+                  }, null, 8, ["modelValue"]),
+                  vue.createVNode(_component_Info, { id: "RemoveElement.removeLiveMosaic" })
                 ]),
                 _: 1
               })
@@ -4934,6 +4970,10 @@
       removeComboCard: {
         title: "移除直播间相同弹幕连续提示",
         message: "移除直播间的相同弹幕连续提示弹窗。"
+      },
+      removeLiveMosaic: {
+        title: "移除直播间马赛克",
+        message: "移除部分直播间特有的马赛克。"
       }
     }
   };
